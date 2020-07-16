@@ -131,14 +131,6 @@ def login():
     access_token = create_access_token(identity=nim)
     return jsonify(access_token=access_token), 200
 
-# materi pertemuan 13 dan 14
-@app.route('/getuser', methods=['GET'])
-@jwt_required
-def getuser():
-    all_users = Mahasiswa.get_all_users()
-    result = users_schema.dump(all_users)
-
-    return jsonify(result), 200
 
 if __name__ == '__main__':
     app.run()
